@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "d:\\远洋集团\\学习资料\\NetCore\\WebApplication\\WebApplication\\WebApplication.csproj",
+  "TargetFramework": "netcoreapp2.1",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "MVC-2.1",
+    "LanguageVersion": "2.1",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-2.1"
+      }
+    ]
+  }
+}
