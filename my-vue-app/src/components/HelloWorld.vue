@@ -2,9 +2,22 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <login v-on:listenLoginUserInfo="showChildLoginUser"
+    v-on:listenLoginUserName="showChildLoginUserName"
+    v-on:listenLoginUserPwd="showChildLoginUserPwd"
+    />
     <ul>
       <li>
+
+        <hello-parent-test/>
+        <hello-test2/>
         <router-link to="about">go to about</router-link>
+        <button-counter/>
+        <agg v-bind:user="{
+          name:'白泽',
+          age:26
+        }" />
+      </li>
       <li>
         <a
           href="https://vuejs.org"
@@ -86,11 +99,42 @@
 </template>
 
 <script>
+import agg from './HelloWorld2'
+import login from './login'
+// import vue from 'vue'
+var helloChildTestComponent = {
+  template: '<p>this is {{msg}}</p>',
+  props: ['msg']
+}
+var helloPatentTestComponent = {
+  template: '<div><p>this is helloPatentTest</p><hello-child-test msg="你好啊 我的子元素" /></div>',
+  components: {
+    helloChildTest: helloChildTestComponent
+  }
+}
+
+// vue.component('hello-test', helloTestComponent)
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  components: {
+    agg,
+    helloParentTest: helloPatentTestComponent,
+    login
+  },
+  methods: {
+    showChildLoginUser (data) {
+      alert(data)
+    },
+    showChildLoginUserPwd (data) {
+      alert(data)
+    },
+    showChildLoginUserName (data) {
+      alert(data)
     }
   }
 }
